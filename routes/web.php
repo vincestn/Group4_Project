@@ -13,41 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\RouteController@welcome');
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/index', 'App\Http\Controllers\RouteController@index');
 
-Route::get('/main', function () {
-    return view('main');
-});
+Route::get('/main', 'App\Http\Controllers\RouteController@main');
 
-Route::get('/post1', function () {
-    return view('post1');
-});
+Route::get('/postLN1', 'App\Http\Controllers\RouteController@postLN1');
 
-Route::get('/postLN1', function () {
-    return view('postLN1');
-});
+Route::get('/postLN2', 'App\Http\Controllers\RouteController@postLN2');
 
-Route::get('/postLN2', function () {
-    return view('postLN2');
-});
+Route::get('/postIN1', 'App\Http\Controllers\RouteController@postIN1');
 
-Route::get('/postIN1', function () {
-    return view('postIN1');
-});
+Route::get('/postIN2', 'App\Http\Controllers\RouteController@postIN2');
 
-Route::get('/postIN2', function () {
-    return view('postIN2');
-});
-
-Route::get('/postSymp', function () {
-    return view('postSymp');
-});
+Route::get('/postSymp', 'App\Http\Controllers\RouteController@postSymp');
 
 Auth::routes();
 
