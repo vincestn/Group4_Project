@@ -32,7 +32,7 @@
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <br>
                 <div class="sidebar-heading text-center">QuaraNtimes</div>
-                <div class="list-group list-group-flush">
+                <div class="list-group list-group-flush mt-2">
                     <a href="https://www.worldometers.info/coronavirus/" class="list-group-item list-group-item-action bg-light text-center">Live Update</a>
                     <a href="#LocalNews" class="list-group-item list-group-item-action bg-light text-center">Local News</a>
                     <a href="#InterNews" class="list-group-item list-group-item-action bg-light text-center">International News</a>
@@ -70,7 +70,7 @@
                 @yield('cover')
                     <div class="row h-100 align-items-center justify-content-center text-center">
                         <div class="col-lg-10 align-self-end">
-                            <br>
+                            <br><br>
                             <h3 class="display-4 text-uppercase text-white font-weight-bold">@yield('coverTitle')</h1>
                             <h3 class="text-danger font-weight-bold">@yield('subTitle')</h1>
                         </div>
@@ -143,31 +143,30 @@
                 </div>
             </div>
 
-            <!-- Symptoms -->
-            <div class="container" id="Symptoms">
+            </div>
+            <hr /> 
+            <!-- /#page-content-wrapper -->
+
+        </div>
+        
+        <br>
+          <!-- Symptoms -->
+          <div class="container-xxl" id="Symptoms">
                 <div class="card text-white my-1 py-1 text-center" style="background-image: url(img/symp.jpg); 
-                    height: 300px; background-repeat: no-repeat; background-size:cover;" id="Symptoms">
+                    height: 325px; background-repeat: no-repeat; background-size:cover;" id="Symptoms">
                     <div class="card-body">
                         <br>
                         <h1 class="section-heading text-white">COVID-19 Symptoms</h2>
                         <p class="text-white m-0">Be aware, you might have it without knowing.</p>
                         <p class="text-white m-0">Article by Feca, John Neil G.</p>
-                        <br><br><br>
+                        <br><br>
                         <a class="btn btn-secondary btn-lg" href="{{ url('/postSymp') }}" role="button">Learn More</a>
                     </div>
+                        @include('layouts.footer')
                 </div>  
             </div>
-            </div>
-            <hr /> 
-            <!-- /#page-content-wrapper -->
-            
-        </div>
+
         <!-- /#wrapper -->
-        <br><br><br>
-
-    
-
-    @include('layouts.footer')
 
          <!-- Bootstrap core JS-->
          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

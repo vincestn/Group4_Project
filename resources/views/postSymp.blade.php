@@ -1,7 +1,6 @@
 @extends('layouts.postsTemplate')
 
 @section('articleCover')
-
     <div class="container-xxl" style="background-image: url(img/cover-symp.jpg); 
     height: 500px; background-repeat: no-repeat; background-size:cover;">
 @endsection
@@ -127,11 +126,10 @@
     </p><br>
 
     <!--FIGURE V-->
-	<img class="img-fluid" src="img/img-symp-4.jpg"><br><br>
+	<img class="img-fluid" src="img/img-symp-4.jpg">
 
-    <p class="lead text-justify"><b>Call 911 or call ahead to your local emergency facility:</b> 
-        Notify the operator that you are seeking care for someone who has or may have COVID-19.
-    </p><br><br><br><br>
+    <span class="caption text-muted"><b>Call 911 or call ahead to your local emergency facility:</b> 
+        Notify the operator that you are seeking care for someone who has or may have COVID-19.</span><br><br><br><br>
 
     <!--END-->      
 @endsection

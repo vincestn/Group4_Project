@@ -158,7 +158,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section><br>
 
     @include('layouts.footer')
 
