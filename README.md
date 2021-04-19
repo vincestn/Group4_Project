@@ -33,3 +33,14 @@
         -> php artisan config:clear
 6. After that run "php artisan serve" on the terminal
 7. Click "GO" in the bottom and you're good to go.
+
+
+## INSTRUCTION HOW TO USE:
+Note that all the navigations are functional
+
+- Type "http://127.0.0.1:8000/index" at the browser, this will lead you to the overview page
+- Use Navbar for navigation within the page or between the pages
+- Click "Read More" button on the overview page to go to the main page
+- The side bar will help you navigate within the page
+- Click the "Visit Now" or "Learn More" found on the top and bottom part to go to Worldometer page or Symptoms page respectively
+- Click the title of the selected article to go to that article page
