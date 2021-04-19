@@ -34,6 +34,9 @@
     
     <p class="lead text-justify" style="text-indent: 40px">The DOH said 5 laboratories were not able to submit their data on time. A Monday report said that it was looking to set up a "triage system" across local government units to manage the flow of patients needing health care. 
     In recent days, relatives of COVID-19 patients have been turning to social media for help with finding available hospitals for admission, with some of them narrating how their loved ones died without proper treatment due as there was no space left in hospitals.</p><br><br><br>
-
+ 
+    <p class="lead text-justify" style="text-indent: 40px">COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization. Most common symptoms:
+            fever, dry cough and tiredness. Less common symptoms: aches and pains, sore throat, diarrhoea, conjunctivitis,
+            headache, loss of taste or smell and a rash on skin, or discolouration of fingers or toes</p><br></br>
 @endsection
 
