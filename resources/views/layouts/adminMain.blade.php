@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Main</title>
+        <title>Home</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
         <!-- Font Awesome icons (free version)-->
@@ -37,6 +37,7 @@
                     <a href="#LocalNews" class="list-group-item list-group-item-action bg-light text-center">Local News</a>
                     <a href="#InterNews" class="list-group-item list-group-item-action bg-light text-center">International News</a>
                     <a href="#Symptoms" class="list-group-item list-group-item-action bg-light text-center">COVID-19 Symptoms</a>
+                    <a href="{{ url('/create') }}" class="list-group-item list-group-item-action bg-light text-center">Publish Article</a>
                     <a href="{{ url('/index#mobile ') }}" class="list-group-item list-group-item-action bg-light text-center">QuaraNtimes Mobile</a>
                     <a href="{{ url('/index') }}" class="list-group-item list-group-item-action bg-light text-center">Overview Page</a>
                 </div>
@@ -49,20 +50,57 @@
 
             <!-- Navbar Mainpage -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-5">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">&emsp;@yield('websiteName')</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'QuaraNtimes') }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <form class="form-inline">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-                                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><a href=""><i class="fas fa-search"></i></a></span></div>
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
+                                    </li>
+                                @endif
+                                
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </div>
-                                </form>
-                            </li>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
+                </div>
             </nav>
 
             <!-- Live Update -->

@@ -35,6 +35,8 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#mobile">QuaraNtimes Mobile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/login') }}">LOGIN</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/register') }}">REGISTER</a></li>
             </ul>
         </div>
     </div>

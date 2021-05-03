@@ -12,8 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/create', function () {
+    return view('layouts.createArticle');
+});
 
-Route::get('/', 'App\Http\Controllers\RouteController@welcome');
+Route::get('/admin', function () {
+    return view('layouts.adminMain');
+});
+
+Route::get('/', function() {
+    Auth::logout();
+    return redirect ('/index');
+});
+
+//Route::get('/', 'App\Http\Controllers\RouteController@welcome');
 
 Route::get('/index', 'App\Http\Controllers\RouteController@index');
 
