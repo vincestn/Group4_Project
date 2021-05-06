@@ -16,6 +16,10 @@ Route::get('/create', function () {
     return view('layouts.createArticle');
 });
 
+Route::get('/update', function () {
+    return view('layouts.update');
+});
+
 Route::get('/admin', function () {
     return view('layouts.adminMain');
 });
