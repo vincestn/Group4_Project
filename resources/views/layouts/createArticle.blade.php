@@ -48,13 +48,13 @@
     <!-- Content-->   
     <div class="container bg-light">
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 col-md-10 mt-5">
+            <div class="col-lg-8 col-md-10 mt-5 bg-secondary">
 
             <div class="container">
                 <div class="row justify-content-center mx-auto">
                     <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-center">{{ __('Publish New Article') }}</div>
+                            <div class="card-header d-flex justify-content-center text-primary font-weight-bold">{{ __('Publish New Article') }}</div>
 
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
