@@ -56,7 +56,7 @@
                         <div class="card">
                             <div class="card-header bg-secondary d-flex justify-content-center text-white font-weight-bold">{{ __('Publish New Article') }}</div>
 
-                            <div class="card-body">
+                            <div class="card-body bg-secondary">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
 
