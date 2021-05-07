@@ -25,22 +25,28 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">QuaraNtimes</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#get_started">Get Started</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#mobile">QuaraNtimes Mobile</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/login') }}">LOGIN</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/register') }}">REGISTER</a></li>
-            </ul>
-        </div>
+  
+<!-- HEADER FILE -->
+<header id="header" class="fixed-top py-2">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="#page-top">QuaraNtimes</a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="#getstarted">Get Started</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#mobile">QuaraNtimes Mobile</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li class="active"><a href="{{ url('/login') }}">LOGIN</a></li>
+          <li class="active"><a href="{{ url('/register') }}">REGISTER</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
     </div>
-</nav>
+  </header><!-- End Header -->
 
 </body>
 </html>
