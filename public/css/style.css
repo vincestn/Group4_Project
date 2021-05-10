@@ -427,6 +427,94 @@ h6 {
     }
 }
 
+
+/*--------------------------------------------------------------
+  # Symptoms Section
+  --------------------------------------------------------------*/
+  #Symptoms {
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: url("../img/cover-main.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 60px;
+    padding: 0;
+}
+
+#Symptoms:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#Symptoms .container {
+    z-index: 2;
+}
+
+#Symptoms h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+}
+
+#Symptoms h2 {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 35px;
+    font-size: 24px;
+}
+
+#Symptoms .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+#Symptoms .btn-get-started:hover {
+    border-color: #cd5749;
+    background: #cd5749;
+}
+
+@media (min-width: 1024px) {
+    #Symptoms {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #Symptoms {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #Symptoms h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #Symptoms h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+
 /*--------------------------------------------------------------
   # getstarted Section
   --------------------------------------------------------------*/
@@ -673,6 +761,46 @@ section {
     font-size: 15px;
     margin: 0;
     padding: 0;
+}
+
+.steps .btn-edit {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 2px solid #21413c;
+    color: #21413c;
+}
+
+.steps .btn-edit:hover {
+    border-color: #6577a9;
+    background: #6577a9;
+    color: #fff;
+}
+
+.steps .btn-delete {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 2px solid #21413c;
+    color: #21413c;
+}
+
+.steps .btn-delete:hover {
+    border-color: #c04132;
+    background: #c04132;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
