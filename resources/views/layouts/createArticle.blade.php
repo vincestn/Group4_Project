@@ -52,9 +52,9 @@
 
             <div class="container">
                 <div class="row justify-content-center mx-auto">
-                    <div class="col-xl-12">
+                    <div class="col-xl-12 bg-secondary py-3">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-center">{{ __('Publish New Article') }}</div>
+                            <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Publish New Article') }}</div>
 
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
