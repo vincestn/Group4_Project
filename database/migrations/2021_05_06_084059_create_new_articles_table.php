@@ -18,6 +18,8 @@ class CreateNewArticlesTable extends Migration
             $table->string('title');
             $table->string('tags');
             $table->string('author');
+            $table->string('content');
+            $table->string('coverImage');
             $table->timestamps();
         });
     }
