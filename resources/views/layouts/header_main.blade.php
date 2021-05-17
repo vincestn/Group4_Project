@@ -24,26 +24,24 @@
         <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ url('/index') }}" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Overview Page</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/main') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://www.worldometers.info/coronavirus/">Live Update</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/index#mobile') }}">QuaraNtimes Mobile &emsp; </a></li>
-                    <li class="nav-item">
-                        <form class="form-inline">
-                            <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-                            <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><a href=""><i class="fas fa-search"></i></a></span></div>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+
+    <!-- HEADER FILE -->
+    <header id="header" class="fixed-top py-2">
+        <div class="container d-flex">
+
+        <div class="logo mr-auto">
+            <h1 class="text-light"><a href="{{ url('/index') }}">QuaraNtimes</a></h1>
         </div>
-    </nav>
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+            <li><a href="{{ url('/main') }}">Home</a></li>
+            <li><a href="https://www.worldometers.info/coronavirus/">Live Update</a></li>
+            <li><a href="{{ url('/index#mobile') }}">QuaraNtimes Mobile</a></li>
+            </ul>
+        </nav>
+
+        </div>
+    </header><!-- End Header -->
 </body>
 </html>
