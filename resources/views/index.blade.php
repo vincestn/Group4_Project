@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-   	  <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-   
-   <!-- Styles -->
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   
-   <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>QuaraNtimes</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="img/logo.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+    
+    <title>QuaraNtimes</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+    <!--meta-->
+    @include('layouts.meta')
    </head>
    
-   <body id="page-top"> 
+   <body> 
     @include('layouts.header_index')
 
     <!--Carousel-->
-    <div class="container-xxl">
+    <div class="container-xxl" data-aos="fade-up" id="page-top">
     <div class="carousel slide" data-ride="carousel" style="background-repeat: no-repeat; background-size:cover;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -56,61 +40,74 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!--End of Carousel-->
+
 
     <!-- Get Started-->
-    <div class="jumbotron jumbotron-fluid text-center " id="get_started">
-        <h1 class="display-5">Welcome to Quara<i class="fab fa-neos"></i>times</h1>
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <p class="lead">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
-                Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover
-                without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular 
-                disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness. We aim to inform
-                you about news and happennings regarding with the COVID-19.
-            </p>
-        </div>
-        <hr class="my-4">
-        <p>We care for you and protect you by delivering information.</p>
-        <a class="btn btn-dark btn-lg" href="{{ url('/main') }}" role="button">Read More</a>
-    </div>
-
-    <!-- Services-->
-    <section class="page-section" id="services">
-            <div class="container"> 
-                <h2 class="text-center mt-0">At Your Service</h2>
-                <hr class="divider my-4" />
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fas fa-flask text-dark mb-4"></i>
-                            <h3 class="h4 mb-2">Research on Cure </h3>
-                            <p class="text-muted mb-0">News about the cure to COVID-19 !</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-laptop-code text-dark mb-4"></i>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">Latest news and information are present.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-globe text-dark mb-4"></i>
-                            <h3 class="h4 mb-2">World Wide</h3>
-                            <p class="text-muted mb-0">Both International and Local News about COVID-19 is brought to you.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-heart text-dark mb-4"></i>
-                            <h3 class="h4 mb-2">Because we Care</h3>
-                            <p class="text-muted mb-0">This is site is made because we care for you.</p>
-                            <br><br><br>
-                        </div>
-                    </div>
-                </div>
+    <section id="getstarted" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-center text-md-left" data-aos="fade-up">
+            <div class="col-lg-8 col-md-10 mx-auto text-center">
+                <h1 class="display-5">Welcome to Quara<i class="fab fa-neos"></i>times</h1>
+                <h2><br>
+                <p class="lead">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+                            Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover
+                            without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular 
+                            disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness. We aim to inform
+                            you about news and happennings regarding with the COVID-19.
+                </p>
+                <hr class="my-4 ">
+                <p class="lead">We care for you and protect you by delivering information.</p>
+                <a href="{{ url('/main') }}" class="btn-get-started scrollto">Read More</a>
             </div>
+        </div>
     </section>
+    <!-- End GetStarted -->
+
+    <!-- Services -->
+    <section id="services" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>At Your Service</h2>
+          <p>We aim to serve you with our utmost capabilities.</p>
+        </div>
+
+
+        <div class="row portfolio-container" data-aos="fade-up">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+            <img src="{{ asset('img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>RESEARCH ON CURE</h4>
+                <h4>News about the cure to COVID-19 !</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+            <img src="{{ asset('img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>UP TO DATE</h4>
+                <h4>Latest news and information are present.</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+            <img src="{{ asset('img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>WORLDWIDE</h4>
+                <h4>Both International and Local News about COVID-19 is brought to you.</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <br><br>
+    </section><!-- End Services Section -->
 
     <!--Playstore Dl-->
     <section class="download bg-primary text-center" id="mobile">
@@ -132,44 +129,110 @@
         </div>
       </div>
     </div>
-  </section>
-  <br><br>
+    </section>
+    <br><br>
 
-    <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">You need to share something?</h2>
-                        <hr class="divider my-4" />
-                        <p class="text-muted mb-5">Is there a recent COVID-19 related events near you? Or you need some help? Give us 
+     <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+            <h2>Contact Us</h2>
+            <p>Is there a recent COVID-19 related events near you? Or you need some help? Give us 
                         a call or send us an email and we will get back to you as soon as possible!</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                        <div>+2 (134) 190-4017</div>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:contact@yourwebsite.com">quaraNtimes_Help@gmail.com</a><br><br>
-                    </div>
-                </div>
             </div>
-        </section><br>
+
+            <div class="row no-gutters justify-content-center" data-aos="fade-up">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                <div class="address">
+                    <i class="icofont-google-map"></i>
+                    <h4>Location:</h4>
+                    <p>12-B Alcalde Jose, Pasig, 1600 Metro Manila</p>
+                </div>
+
+                <div class="email mt-4">
+                    <i class="icofont-envelope"></i>
+                    <h4>Email:</h4>
+                    <p>quaraNtimes_Help@gmail.com</p>
+                </div>
+
+                <div class="phone mt-4">
+                    <i class="icofont-phone"></i>
+                    <h4>Call:</h4>
+                    <p>+2 (134) 190-4017</p>
+                </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=12-B Alcalde Jose, Pasig, 1600 Metro Manila&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+
+            </div>
+
+            <div class="row mt-5 justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validate"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validate"></div>
+                </div>
+                <div class="mb-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+            </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
 
     @include('layouts.footer')
 
 
-         <!-- Bootstrap core JS-->
-         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('/vendor/venobox/venobox.min.js') }}"></script>
+    <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ asset('/js/main.js') }}"></script>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+
    </body>
 </html>
