@@ -57,7 +57,7 @@
                             <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Publish New Article') }}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group row">
@@ -103,6 +103,22 @@
 
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="date" placeholder="Enter Date">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" >
+                                            <p><img id="output" width="200" class="img-thumbnail" /></p>
+
+                                            <script>
+                                                var loadFile = function(event) {
+                                                    var image = document.getElementById('output');
+                                                    image.src = URL.createObjectURL(event.target.files[0]);
+                                                };
+                                            </script>
                                         </div>
                                     </div>
 
