@@ -57,14 +57,14 @@
                             <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Publish New Article') }}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group row">
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="titleArt" placeholder="Enter Title">
+                                            <input type="text" class="form-control" id="title" placeholder="Enter Title">
                                         </div>
                                     </div>
 
@@ -72,7 +72,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="subtitleArt" placeholder="Enter SubTitle">
+                                            <input type="text" class="form-control" id="subtitle" placeholder="Enter SubTitle">
                                         </div>
                                     </div>
 
@@ -97,6 +97,7 @@
                                         </div>
                                     </div>
 
+                                    {{--
 
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date Published') }}</label>
@@ -106,11 +107,13 @@
                                         </div>
                                     </div>
 
+                                    --}}
+
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" >
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" >
                                             <p><img id="output" width="200" class="img-thumbnail" /></p>
 
                                             <script>
@@ -127,7 +130,7 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                            <textarea class="form-control" id="content" rows="20"></textarea>
                                         </div>
                                     </div>
 

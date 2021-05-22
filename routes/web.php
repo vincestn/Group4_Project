@@ -44,3 +44,5 @@ Route::get('/postSymp', 'App\Http\Controllers\RouteController@postSymp');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('articles', 'App\Http\Controllers\ArticlesController');
