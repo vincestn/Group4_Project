@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-   	  <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-   <!-- Styles -->
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   
-   <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
         <title>Main</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <!--meta-->
+        @include('layouts.meta')
    </head>
    
    <body> 
-        <div class="d-flex" id="wrapper" >
+        <!-- <div class="d-flex" id="wrapper" > -->
 
         <!-- Sidebar -->
-        <div style="width:300px;">
+        <!-- <div style="width:300px;">
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <br>
                 <div class="sidebar-heading text-center">QuaraNtimes</div>
@@ -41,14 +25,14 @@
                     <a href="{{ url('/index') }}" class="list-group-item list-group-item-action bg-light text-center">Overview Page</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div class="container border-left" id="page-content-wrapper">
+        <!-- <div class="container border-left" id="page-content-wrapper"> -->
 
             <!-- Navbar Mainpage -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-5">
+            <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-5">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">&emsp;@yield('websiteName')</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,34 +47,54 @@
                             </li>
                         </ul>
                     </div>
-            </nav>
+            </nav> -->
+            <!--Header-->
+            <header id="header" class="fixed-top py-2">
+                <div class="container d-flex">
 
-            <!-- Live Update -->
-            <header class="masthead" id="LiveUpdate">
-                @yield('cover')
-                    <div class="row h-100 align-items-center justify-content-center text-center">
-                        <div class="col-lg-10 align-self-end">
-                            <br><br>
-                            <h3 class="display-4 text-uppercase text-white font-weight-bold">@yield('coverTitle')</h1>
-                            <h3 class="text-danger font-weight-bold">@yield('subTitle')</h1>
-                        </div>
-                        <div class="col-lg-8 align-self-baseline">
-                        <br>
-                            <p class="text-white font-italic">Last updated: April 07, 2021, 02:25 GMT. Visit Worldometer to view detailed reports.</p>
-                            <a class="btn btn-secondary btn-lg" href="https://www.worldometers.info/coronavirus/" role="button">Visit Now</a>
-                        </div>
-                    </div>
+                <div class="logo mr-auto">
+                    <h1 class="text-light"><a href="#page-top">QuaraNtimes</a></h1>
+                </div>
+
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                        <li><a href="#hero">Live Update</a></li>
+                        <li><a href="#LocalNews">Local News</a></li>
+                        <li><a href="#InterNews">International News</a></li>
+                        <li><a href="#Symptoms">Covid-19 Symptoms</a></li>
+                        <li class="active"><a href="{{ url('/index') }}">Overview Page</a></li>                       
+                        </ul>
+                    </nav><!-- .nav-menu -->
+
                 </div>
             </header>
+            <!-- End Header -->
+
+            <!-- Live Update -->
+            <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+                <div class="col-lg-8 col-md-10 mx-auto text-center" data-aos="fade-up">
+                    <h3 class="display-4 text-uppercase text-white font-weight-bold">@yield('coverTitle')</h1>
+                    <h3 class="text-danger font-weight-bold">@yield('subTitle')</h1>
+                    <h2><br>
+                    <p class="lead">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+                                Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover
+                                without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular 
+                                disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness. We aim to inform
+                                you about news and happennings regarding with the COVID-19.
+                    </p>
+                    <hr class="my-4 ">
+                    <p class="lead">Last updated: April 07, 2021, 02:25 GMT. Visit Worldometer to view detailed reports.</p>
+                    <a href="https://www.worldometers.info/coronavirus/" class="btn-get-started scrollto">Visit Now</a>
+                </div>
+            </section>
+            <!--Live Update -->
 
                 
             <!-- Main Content-->
-            <br><br>
-
             <!-- Local News -->
-            <div class="card text-white my-1 py-1 text-center" style="background-image: url(img/news.jpg); 
+            <div class="card text-white  py-1 text-center" style="background-image: url(img/news.jpg); 
                 height: 130px; background-repeat: no-repeat; background-size:cover;" id="LocalNews">
-                <div class="card-body">
+                <div class="card-body" data-aos="fade-up">
                     <h1 class="section-heading">Local News</h2>
                     <p class="text-white m-0">Daily news from the Philippines to notify the citizens.</p>
                 </div>
@@ -119,7 +123,7 @@
             <!-- International News -->
             <div class="card text-white my-1 py-1 text-center" style="background-image: url(img/news.jpg); 
                 height: 130px; background-repeat: no-repeat; background-size:cover;" id="InterNews">
-                <div class="card-body">
+                <div class="card-body" data-aos="fade-up">
                     <h1 class="section-heading">International News</h2>
                     <p class="text-white m-0">News to inform you what happens around the globe.</p>
                 </div>
@@ -147,11 +151,10 @@
             <hr /> 
             <!-- /#page-content-wrapper -->
 
-        </div>
+        <!-- </div> -->
         
-        <br>
           <!-- Symptoms -->
-          <div class="container-xxl" id="Symptoms">
+          <!-- <div class="container-xxl" id="S">
                 <div class="card text-white my-1 py-1 text-center" style="background-image: url(img/symp.jpg); 
                     height: 325px; background-repeat: no-repeat; background-size:cover;" id="Symptoms">
                     <div class="card-body">
@@ -162,19 +165,49 @@
                         <br><br>
                         <a class="btn btn-secondary btn-lg" href="{{ url('/postSymp') }}" role="button">Learn More</a>
                     </div>
-                        @include('layouts.footer')
                 </div>  
-            </div>
+            </div> -->
+
+        <!-- Symptoms -->
+            <section id="Symptoms" class="d-flex flex-column justify-content-center align-items-center">
+                <div class="col-lg-8 col-md-10 mx-auto text-center" data-aos="fade-up">
+                    <h3 class="display-4 text-uppercase text-white font-weight-bold">COVID-19 Symptoms</h1>
+                    <h2><br>
+                    <p class="lead">Article by Feca, John Neil G.</p>
+                    <hr class="my-4 ">
+                    <p class="lead">COVID-19 affects different people in different ways. Most infected people 
+                        will develop mild to moderate illness and recover without hospitalization. Seek immediate
+                         medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.
+                        People with mild symptoms who are otherwise healthy should manage their symptoms at home.</p>   
+                    <a href="{{ url('/postSymp') }}" class="btn-get-started scrollto">Learn More</a>
+                </div>
+            </section>
+        <!--Symptoms -->        
+
+            @include('layouts.footer')
 
         <!-- /#wrapper -->
 
-         <!-- Bootstrap core JS-->
-         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <!-- Vendor JS Files -->
+        <script src="{{ asset('/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('/vendor/php-email-form/validate.js') }}"></script>
+        <script src="{{ asset('/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('/vendor/venobox/venobox.min.js') }}"></script>
+        <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
+
+        <!-- Template Main JS File -->
+        <script src="{{ asset('/js/main.js') }}"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+
    </body>
 </html>

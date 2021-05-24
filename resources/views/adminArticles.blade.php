@@ -9,8 +9,8 @@
             <h6>The Philippines now has 819,164 cases of COVID-19 </h6>
             <p>Posted by Calayo, on April 08, 2021</p>
             <br>
-            &emsp;<a href="{{ url('/create') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
-            <a href="{{ url('/create') }}" class="btn-delete scrollto">Delete Article</a>
+            &emsp;<a href="{{ url('/update') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+            <a href="" class="btn-delete scrollto">Delete Article</a>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
@@ -20,8 +20,8 @@
             <h6>A tough approach to Covid restrictions </h6>
             <p>Posted by Calayo, on April 08, 2021</p>
             <br>
-            &emsp;<a href="{{ url('/create') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
-            <a href="{{ url('/create') }}" class="btn-delete scrollto">Delete Article</a>
+            &emsp;<a href="{{ url('/update') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+            <a href="" class="btn-delete scrollto">Delete Article</a>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
@@ -31,8 +31,8 @@
             <h6>Joint News Release Phnom Penh International Airport </h6>
             <p>Posted by Caandoy, on April 10, 2021</p>
             <br>
-            &emsp;<a href="{{ url('/create') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
-            <a href="{{ url('/create') }}" class="btn-delete scrollto">Delete Article</a>
+            &emsp;<a href="{{ url('/update') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+            <a href="" class="btn-delete scrollto">Delete Article</a>
           </div>
 
           <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
@@ -41,8 +41,8 @@
             <h6>Vaccines will be provided first to those at highest risk of getting the disease </h6>
             <p>Posted by Caandoy, on April 10, 2021</p>
             <br>
-            &emsp;<a href="{{ url('/create') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
-            <a href="{{ url('/create') }}" class="btn-delete scrollto">Delete Article</a>
+            &emsp;<a href="{{ url('/update') }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+            <a href="" class="btn-delete scrollto">Delete Article</a>
           </div>
 
         </div>
