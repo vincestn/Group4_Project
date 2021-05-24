@@ -64,7 +64,7 @@
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
                                         </div>
                                     </div>
 
@@ -72,7 +72,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="subtitle" placeholder="Enter SubTitle">
+                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle">
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-control" id="tags">
+                                                <select class="form-control" name="tags" id="tags">
                                                     <option>Local News</option>
                                                     <option>International News</option>
                                                 </select>
@@ -93,7 +93,7 @@
                                         <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="author" placeholder="Author Name">
+                                            <input type="text" class="form-control" name="author" id="author" placeholder="Author Name">
                                         </div>
                                     </div>
 
@@ -130,7 +130,7 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" id="content" rows="20"></textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20"></textarea>
                                         </div>
                                     </div>
 

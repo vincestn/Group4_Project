@@ -12,12 +12,13 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $articles = Articles::latest()->paginate(5);
+    public function index() {
+
+        $articles = Articles::latest()->get();      
     
-        return view('articles.index',compact('articles'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('layouts.adminMain', [
+          'articles' => $articles,
+        ]);
     }
 
     /**
@@ -38,14 +39,17 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        $imagePath = $request->file('coverImage')->store('img');
+        $contentPath = 'wew';
+
         $article = new Articles();
 
         $article->title = request('title');
         $article->subtitle = request('subtitle');
         $article->tags = request('tags');
         $article->author = request('author');
+        $article->coverImage = $imagePath;
         $article->content = request('content');
-        $article->coverImage = request('coverImage');
 
         $article->save();
     }
@@ -56,11 +60,9 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $article = Articles::findOrFail($id);
-
-        return view('layouts.postTemplate', ['article' => $pizza]);
+        return view('products.show',compact('product'));
     }
 
     /**
@@ -71,6 +73,7 @@ class ArticlesController extends Controller
      */
     public function edit(Articles $articles)
     {
+        return view('layouts.adminMain');
         //return view('layouts.update');
     }
 
@@ -94,6 +97,6 @@ class ArticlesController extends Controller
      */
     public function destroy(Articles $articles)
     {
-        //
+        return view('layouts.adminMain');
     }
 }

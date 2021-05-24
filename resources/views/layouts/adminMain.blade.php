@@ -8,7 +8,8 @@
         @include('layouts.meta')
    </head>
    
-   <body> 
+   <body>
+       {{$i=0}} 
         <!-- Navbar Admin -->
         <header id="header" class="fixed-top py-2">
             <div class="container d-flex">
@@ -90,7 +91,25 @@
                 </div>
             </div>
 
-        @include('adminArticles')
+        <section id="steps" class="steps section-bg">
+            <div class="container">
+                <div class="row no-gutters">
+                    
+                    @foreach($articles as $article)
+                        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
+                            <span>{{ $i+1 }}</span>
+                            <h4>{{ $article->title }}</h4>
+                            <h6>{{ $article->subTitle }}</h6>
+                            <p>Posted by {{ $article->author }}, on {{ $article->created_at }}</p>
+                            <br>
+                            &emsp;<a href="{{ route('articles.edit', $article->id) }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                            <a href="{{ route('articles.destroy', $article->id) }}" class="btn-delete scrollto">Delete Article</a>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+
 
         @include('layouts.footer')
         <!-- Vendor JS Files -->
