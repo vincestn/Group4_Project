@@ -60,9 +60,9 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Articles $article)
     {
-        return view('products.show',compact('product'));
+        return view('views.articleShow',compact('article'));
     }
 
     /**
@@ -71,9 +71,9 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function edit(Articles $articles)
+    public function edit()#Articles $article
     {
-        return view('layouts.adminMain');
+        return view('edit');
         //return view('layouts.update');
     }
 
@@ -95,8 +95,8 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Articles $articles)
+    public function destroy()#Articles $articles
     {
-        return view('layouts.adminMain');
+        return view('delete');
     }
 }

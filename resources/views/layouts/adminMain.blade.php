@@ -75,7 +75,7 @@
                     <h2><br>
                     <p class="lead">Publish new articles anything related to the Covid-19 Pandemic.</p>
                     <hr class="my-4 ">
-                    <a href="{{ url('/create') }}" class="btn-get-started scrollto">Create Article</a>
+                    <a href="{{ route('articles.create') }}" class="btn-get-started scrollto">Create Article</a>
                 </div>
             </section>
 
@@ -96,15 +96,15 @@
                 <div class="row no-gutters">
                     
                     @foreach($articles as $article)
-                        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
+                        <a href="{{ route('articles.show', $article)}}" class="col-lg-4 col-md-6 content-item" style="display: block" data-aos="fade-in">
                             <span>{{ $i+1 }}</span>
                             <h4>{{ $article->title }}</h4>
                             <h6>{{ $article->subTitle }}</h6>
                             <p>Posted by {{ $article->author }}, on {{ $article->created_at }}</p>
                             <br>
-                            &emsp;<a href="{{ route('articles.edit', $article->id) }}" class="btn-edit scrollto">Edit Article</a> &emsp;
-                            <a href="{{ route('articles.destroy', $article->id) }}" class="btn-delete scrollto">Delete Article</a>
-                        </div>
+                            &emsp;<a href="{{ route('articles.index'{{-- , $article->id--}} ) }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                            <a href="{{ route('articles.index' {{--, $article->id--}} ) }}" class="btn-delete scrollto">Delete Article</a>
+                        </a>
                     @endforeach
 
                 </div>

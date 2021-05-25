@@ -64,7 +64,7 @@
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required>
                                         </div>
                                     </div>
 
@@ -72,7 +72,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle">
+                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" required>
                                         </div>
                                     </div>
 
@@ -81,9 +81,10 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-control" name="tags" id="tags">
-                                                    <option>Local News</option>
-                                                    <option>International News</option>
+                                                <select class="form-control" name="tags" id="tags" required>
+                                                    <option selected="selected" disabled="disabled" value="">Please Select</option>
+                                                    <option value="Local News">Local News</option>
+                                                    <option value="International News">International News</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -93,7 +94,7 @@
                                         <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="author" id="author" placeholder="Author Name">
+                                            <input type="text" class="form-control" name="author" id="author" placeholder="{{ Auth::user()->name }}" value="{{Auth::user()->name}}" readonly>
                                         </div>
                                     </div>
 
@@ -113,7 +114,7 @@
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" >
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" required>
                                             <p><img id="output" width="200" class="img-thumbnail" /></p>
 
                                             <script>
@@ -130,7 +131,7 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" name="content" id="content" rows="20"></textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20" required></textarea>
                                         </div>
                                     </div>
 
