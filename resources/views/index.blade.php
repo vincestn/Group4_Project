@@ -109,30 +109,38 @@
         <br><br>
     </section><!-- End Services Section -->
 
-    <!--Playstore Dl-->
-    <section class="download bg-primary text-center" id="mobile">
-    <div style="height: 400px; background-image: url(img/coralbg.jpg); 
-	    height: 400px; background-repeat: repeat; background-size:auto;">
-    <div class="container d-flex justify-content-center ">
-      <div class="row">
-      <div style="margin-top: 60px;">
-        <div class="col-md-8 mx-auto">
-          <h1 class="section-heading">News about COVID-19 anywhere you go?</h2>
-          <p>We also cater our service on Android devices! Download now to get started!</p>
-          <div class="badges">
-            <a class="badge-link" href="https://play.google.com/store?utm_source=apac_med&utm_medium=hasem&utm_
-            content=Jan0421&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-ph-1003227-med-hasem-py-Evergreen-
-            Jan0421-Text_Search_BKWS-BKWS%7cONSEM_kwid_43700057529550448_creativeid_468734232461_device_c&gclid
-            =Cj0KCQjw9YWDBhDyARIsADt6sGZxQRy-yQv2xsPe6obaLvYsXZ6y2lO5M70UtzafP2CwW8p4YGm1uSEaAsGGEALw_wcB&gclsrc
-            =aw.ds"><img src="img/google-play-badge.svg" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
-    <br><br>
 
-     <!-- ======= Contact Section ======= -->
+    <!-- Mobile-->
+    <section id="mobile" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-center text-md-left" data-aos="fade-up">
+            <div class="col-lg-8 col-md-10 mx-auto text-center">
+            <!-- <section class="download text-center" id="mobile"> -->
+              <div style="height: 400px; background-image: url(img/coralbg.jpg); 
+                height: 400px; background-repeat: repeat; background-size:auto;">
+              <div class="container d-flex justify-content-center ">
+                <div class="row">
+                <div style="margin-top: 60px;">
+                  <div class="col-md-8 mx-auto">
+                    <h1 class="section-heading">News about COVID-19 anywhere you go?</h2>
+                    <p class="lead">We also cater our service on Android devices! Download now to get started!</p>
+                    <div class="badges">
+                      <a class="badge-link" href="https://play.google.com/store?utm_source=apac_med&utm_medium=hasem&utm_
+                      content=Jan0421&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-ph-1003227-med-hasem-py-Evergreen-
+                      Jan0421-Text_Search_BKWS-BKWS%7cONSEM_kwid_43700057529550448_creativeid_468734232461_device_c&gclid
+                      =Cj0KCQjw9YWDBhDyARIsADt6sGZxQRy-yQv2xsPe6obaLvYsXZ6y2lO5M70UtzafP2CwW8p4YGm1uSEaAsGGEALw_wcB&gclsrc
+                      =aw.ds"><img src="img/google-play-badge.svg" alt=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- </section> -->
+            </div>
+        </div>
+    </section>
+    <!--End of Mobile -->
+
+
+    <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container">
 
