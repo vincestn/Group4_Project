@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-        <title>Admin</title>
+        <title>Admin Home</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
         <!--meta-->
@@ -14,7 +14,7 @@
         <header id="header" class="fixed-top py-2">
             <div class="container d-flex">
                 <div class="logo mr-auto">
-                    <h1 class="text-light"><a href="{{ url('/') }}">QuaraNtimes</a></h1>
+                    <h1 class="text-light"><a href="{{ url('/index') }}">QuaraNtimes</a></h1>
                 </div>
                 <nav class="navbar navbar-expand-lg nav-menu d-none d-lg-block">
                     <div class="container">
@@ -48,10 +48,12 @@
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                                <a class="nav-link text-dark " href="{{ url('/index') }}">&emsp;{{ __('Overview Page') }}</a>
+                                                <a class="nav-link text-dark " href="{{ url('/main') }}">&emsp;{{ __('Main Page') }}</a>
+                                                <a class="nav-link text-danger" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
+                                                                document.getElementById('logout-form').submit();">&emsp;
+                                                    {{ __('LOGOUT') }}
                                                 </a>
 
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
