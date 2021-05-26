@@ -70,7 +70,7 @@ class ArticlesController extends Controller
         //Save to database
         $article->save();
 
-        return redirect()->url('/home'); #action([ArticlesController::class, 'index']);
+        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Added');
     }
 
     /**
@@ -90,6 +90,8 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
+
+    // on progress
     public function edit()#Articles $article
     {
         return view('edit', compact('article'));

@@ -1,4 +1,5 @@
 {{-- Read page --}}
+{{-- Need adjustment --}}
 @extends('layouts.postsTemplate')
 
 @section('articleCover')

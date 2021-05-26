@@ -96,13 +96,17 @@
                 <div class="row no-gutters">
                     
                     @foreach($articles as $article)
-                        <div {{--href="{{ route('articles.show', $article)}}"style="display: block"--}} class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
-                            <span>{{ $i+1 }}</span>
-                            <h4>{{ $article->title }}</h4>
-                            <h6>{{ $article->subTitle }}</h6>
-                            <p>Posted by {{ $article->author }}, on {{ $article->created_at }}</p>
-                            <br>
-                            &emsp;<a href="{{ route('articles.index', $article->id) }}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                        {{-- Need adjustment --}}
+                        <div class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
+                            <a href="{{ route('articles.show', $article)}}" >
+                                {{-- counter, not working properly :< --}}
+                                <span>{{ $i+1 }}</span>
+                                <h4>{{ $article->title }}</h4>
+                                <h6>{{ $article->subTitle }}</h6>
+                                <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                <br>
+                            </a>
+                            &emsp;<a href="{{-- route('articles.index', $article->id) --}}" class="btn-edit scrollto">Edit Article</a> &emsp;
                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
