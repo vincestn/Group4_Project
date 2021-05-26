@@ -14,7 +14,7 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-
+        // to be added paginate para malimit yung i show na data
         //Get all data from database through the model in order from latest record descending
         $articles = Articles::latest()->get();      
         
