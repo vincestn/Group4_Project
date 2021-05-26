@@ -1,3 +1,4 @@
+{{-- Create page --}}
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -94,7 +95,7 @@
                                         <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="author" id="author" placeholder="{{ Auth::user()->name }}" value="{{Auth::user()->name}}" readonly>
+                                            <input type="text" class="form-control" name="author" id="author" placeholder="{{ Auth::user()->name }}" {{--value="{{Auth::user()->name}}"--}} readonly>
                                         </div>
                                     </div>
 

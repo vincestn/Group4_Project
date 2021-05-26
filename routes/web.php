@@ -28,17 +28,11 @@ Route::get('/', function() {
 //Route::get('/', 'App\Http\Controllers\RouteController@welcome');
 
 Route::get('/index', 'App\Http\Controllers\RouteController@index');
-
 Route::get('/main', 'App\Http\Controllers\RouteController@main');
-
 Route::get('/postLN1', 'App\Http\Controllers\RouteController@postLN1');
-
 Route::get('/postLN2', 'App\Http\Controllers\RouteController@postLN2');
-
 Route::get('/postIN1', 'App\Http\Controllers\RouteController@postIN1');
-
 Route::get('/postIN2', 'App\Http\Controllers\RouteController@postIN2');
-
 Route::get('/postSymp', 'App\Http\Controllers\RouteController@postSymp');
 
 Auth::routes();

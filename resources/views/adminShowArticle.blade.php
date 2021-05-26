@@ -1,7 +1,8 @@
+{{-- Read page --}}
 @extends('layouts.postsTemplate')
 
 @section('articleCover')
-    <div class="container-xxl" style="background-image: url({{ $article->coverImage }}); 
+    <div class="container-xxl" style="background-image: url({{asset('storage/'.$article->coverImage)}}); 
     height: 500px; background-repeat: no-repeat; background-size:cover;">
 @endsection
 

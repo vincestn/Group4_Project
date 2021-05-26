@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Articles;
 use Illuminate\Http\Request;
+use Storage;
 
 class ArticlesController extends Controller
 {
@@ -14,8 +15,10 @@ class ArticlesController extends Controller
      */
     public function index() {
 
+        //Get all data from database through the model in order from latest record descending
         $articles = Articles::latest()->get();      
-    
+        
+        //Pass database data to adminMain.blade.php for display
         return view('layouts.adminMain', [
           'articles' => $articles,
         ]);
@@ -28,6 +31,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
+        //For routing...
         return view('layouts.createArticle');
     }
 
@@ -39,11 +43,23 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $imagePath = $request->file('coverImage')->store('img');
-        $contentPath = 'wew';
+        //Check submitted inputs if valid/not null
+        $this->validate($request, [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'tags' => 'required',
+            'author' => 'required',
+            'coverImage' => 'image|required|max:1999',
+            'content' => 'required'
+        ]);
 
+        //Store submitted cover image of article to storage/images and take the image path
+        $imagePath = $request->file('coverImage')->store('images', 'public');
+
+        //New instance of Articles object from model
         $article = new Articles();
 
+        //Assign each submitted data to Articles object
         $article->title = request('title');
         $article->subtitle = request('subtitle');
         $article->tags = request('tags');
@@ -51,7 +67,10 @@ class ArticlesController extends Controller
         $article->coverImage = $imagePath;
         $article->content = request('content');
 
+        //Save to database
         $article->save();
+
+        return redirect()->url('/home'); #action([ArticlesController::class, 'index']);
     }
 
     /**
@@ -62,7 +81,7 @@ class ArticlesController extends Controller
      */
     public function show(Articles $article)
     {
-        return view('views.articleShow',compact('article'));
+        return view('adminShowArticle',compact('article'));
     }
 
     /**
@@ -73,7 +92,7 @@ class ArticlesController extends Controller
      */
     public function edit()#Articles $article
     {
-        return view('edit');
+        return view('edit', compact('article'));
         //return view('layouts.update');
     }
 
@@ -95,8 +114,21 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function destroy()#Articles $articles
+    public function destroy($id)
     {
-        return view('delete');
+        $article = Articles::find($id);
+        
+        //Check if post exists before deleting
+        if (!isset($article)){
+            return redirect()->action([ArticlesController::class, 'index'])->with('error', 'No Article Found');
+        }
+
+        // Delete Image
+        Storage::delete('/public/'.$article->coverImage);
+        
+        //Delete record in database
+        $article->delete();
+
+        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Removed');
     }
 }
