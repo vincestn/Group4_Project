@@ -13,11 +13,14 @@ class CreateNewArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('new_articles', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('subtitle');
             $table->string('tags');
             $table->string('author');
+            $table->string('coverImage');
+            $table->longText('content');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateNewArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('new_articles');
+        Schema::dropIfExists('articles');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller{
 
+    //needs adjustment
     public function welcome(){
         return view('welcome');
     }

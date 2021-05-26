@@ -1,3 +1,5 @@
+{{-- Create page --}}
+{{-- Need adjustment --}}
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -57,14 +59,14 @@
                             <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Publish New Article') }}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group row">
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="titleArt" placeholder="Enter Title">
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required>
                                         </div>
                                     </div>
 
@@ -72,7 +74,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="subtitleArt" placeholder="Enter SubTitle">
+                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" required>
                                         </div>
                                     </div>
 
@@ -81,9 +83,10 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-control" id="tags">
-                                                    <option>Local News</option>
-                                                    <option>International News</option>
+                                                <select class="form-control" name="tags" id="tags" required>
+                                                    <option selected="selected" disabled="disabled" value="">Please Select</option>
+                                                    <option value="Local News">Local News</option>
+                                                    <option value="International News">International News</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -93,10 +96,11 @@
                                         <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" id="author" placeholder="Author Name">
+                                            <input type="text" class="form-control" name="author" id="author" placeholder="{{ Auth::user()->name }}" value="{{Auth::user()->name}}" readonly>
                                         </div>
                                     </div>
 
+                                    {{--
 
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date Published') }}</label>
@@ -106,12 +110,30 @@
                                         </div>
                                     </div>
 
+                                    --}}
+
+                                    <div class="form-group row">
+                                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" required>
+                                            <p><img id="output" width="200" class="img-thumbnail" /></p>
+
+                                            <script>
+                                                var loadFile = function(event) {
+                                                    var image = document.getElementById('output');
+                                                    image.src = URL.createObjectURL(event.target.files[0]);
+                                                };
+                                            </script>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group d-flex justify-content-center">
                                     
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20" required></textarea>
                                         </div>
                                     </div>
 

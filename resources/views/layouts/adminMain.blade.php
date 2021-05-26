@@ -8,7 +8,8 @@
         @include('layouts.meta')
    </head>
    
-   <body> 
+   <body>
+       {{$i=0}} 
         <!-- Navbar Admin -->
         <header id="header" class="fixed-top py-2">
             <div class="container d-flex">
@@ -74,7 +75,7 @@
                     <h2><br>
                     <p class="lead">Publish new articles anything related to the Covid-19 Pandemic.</p>
                     <hr class="my-4 ">
-                    <a href="{{ url('/create') }}" class="btn-get-started scrollto">Create Article</a>
+                    <a href="{{ route('articles.create') }}" class="btn-get-started scrollto">Create Article</a>
                 </div>
             </section>
 
@@ -90,7 +91,37 @@
                 </div>
             </div>
 
-        @include('adminArticles')
+        {{-- dito na apply ang read function --}}
+        {{-- $article is from ArticlesController index function, instance of Articles model bali dala dala non yung data from articles table sa db. Bali ginamitan ng foreach para makuha per row ang data then $articles->table column, kada loop magpi print ng div so malalagay lahat ng data sa kanya kanyang div at malalagay lahat ng article from db --}}
+        <section id="steps" class="steps section-bg">
+            <div class="container">
+                <div class="row no-gutters">
+                    
+                    @foreach($articles as $article)
+                        {{-- Need adjustment --}}
+                        <div class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
+                            <a href="{{ route('articles.show', $article)}}" >
+                                {{-- counter, not working properly :< --}}
+                                <span>{{ $i+1 }}</span>
+                                <h4>{{ $article->title }}</h4>
+                                <h6>{{ $article->subTitle }}</h6>
+                                <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                <br>
+                            </a>
+
+                            {{-- no need to apply this to user side, pang admin lang to --}}
+                            &emsp;<a href="{{-- route('articles.index', $article->id) --}}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                            <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn-delete scrollto">Delete Article</button>
+                            </form>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+
 
         @include('layouts.footer')
         <!-- Vendor JS Files -->
