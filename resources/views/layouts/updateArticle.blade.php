@@ -115,7 +115,7 @@
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" required>
                                             <p><img id="output" width="200" class="img-thumbnail" /></p>
 
