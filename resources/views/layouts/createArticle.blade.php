@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-        <title>Admin Home</title>
+        <title>Publish Article</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
         <!--meta-->
@@ -75,7 +75,7 @@
 
     <!-- Content-->   
     <div class="container bg-light">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center mt-5 mb-5">
             <div class="col-lg-8 col-md-10 mt-5">
 
             <div class="container">
@@ -180,7 +180,7 @@
             </div>
 
             </div>
-        </div>    
+        </div>
     </div>
         
     
