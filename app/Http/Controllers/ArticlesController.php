@@ -92,10 +92,9 @@ class ArticlesController extends Controller
      */
 
     // on progress
-    public function edit()#Articles $article
+    public function edit(Articles $article)
     {
-        return view('edit', compact('article'));
-        //return view('layouts.update');
+        return view('layouts.updateArticle', compact('article'));
     }
 
     /**

@@ -56,17 +56,17 @@
                 <div class="row justify-content-center mx-auto">
                     <div class="col-xl-12 bg-secondary py-3">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Publish New Article') }}</div>
+                            <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Update Article') }}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('articles.update') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group row">
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required> {{ $articles->title }}
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{ $articles->title }}" required> 
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" required>
+                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" value="{{ $articles->subtitle }}" required>
                                         </div>
                                     </div>
 
@@ -83,6 +83,9 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
+
+                                                {{ $articles->tags }}
+
                                                 <select class="form-control" name="tags" id="tags" required>
                                                     <option selected="selected" disabled="disabled" value="">Please Select</option>
                                                     <option value="Local News">Local News</option>
@@ -116,7 +119,7 @@
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" required>
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" value="{{ $articles->coverImage }}" required>
                                             <p><img id="output" width="200" class="img-thumbnail" /></p>
 
                                             <script>
@@ -133,7 +136,7 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" name="content" id="content" rows="20" required></textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20" value="{{ $articles-hosw }}"required></textarea>
                                         </div>
                                     </div>
 
@@ -142,7 +145,7 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-8 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('Publish Article') }}
+                                                {{ __('Update Article') }}
                                             </button>
                                         </div>
                                     </div>

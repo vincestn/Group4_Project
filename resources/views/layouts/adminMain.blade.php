@@ -110,7 +110,7 @@
                             </a>
 
                             {{-- no need to apply this to user side, pang admin lang to --}}
-                            &emsp;<a href="{{-- route('articles.index', $article->id) --}}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                            &emsp;<a href="route('articles.edit', $article->id)" class="btn-edit scrollto">Edit Article</a> &emsp;
                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
