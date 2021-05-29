@@ -43,18 +43,23 @@
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
                                     @guest
+                                        {{-- will be directed to password.login --}}
                                         @if (Route::has('login'))
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                                             </li>
                                         @endif
                                         
+                                        {{-- will be directed to password.register --}}
                                         @if (Route::has('register'))
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
                                             </li>
                                         @endif
                                     @else
+                                        {{-- when logged in the Login and Register will be replaced by the name on the Users table in the database
+                                         from the and automatically be directed to /admin --}}
+                                        {{-- password.login and password.register can't be accessed even using the url, it will also directed to /admin --}}
                                         <li class="nav-item dropdown">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 {{ Auth::user()->name }}
