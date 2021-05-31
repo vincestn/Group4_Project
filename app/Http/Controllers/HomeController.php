@@ -11,6 +11,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
+    //Calls middleware.Authenticate, protects from accessing the /home if authenticated
     public function __construct()
     {
         $this->middleware('auth');

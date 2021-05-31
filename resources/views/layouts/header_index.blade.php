@@ -32,7 +32,8 @@
                           <li><a href="#mobile">QuaraNtimes Mobile &emsp;</a></li>
                           <li><a href="#contact">Contact Us &emsp;</a></li>
                           <!-- Authentication Links -->
-                              @guest
+                              @guest <!-- Calls the middleware.RedirectIfAuthenticated, If not Authenticated navbar 
+                                        will show Login and Register-->
                                   @if (Route::has('login'))
                                       <li class="nav-item">
                                           <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
@@ -44,9 +45,11 @@
                                           <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
                                       </li>
                                   @endif
-                              @else
+                              @else <!-- Once Authenticated will direct you to /home, Login and Register will changed 
+                                    into Admin Home which can access /home-->
+                                    <!-- Login and Register wont be accessible as long as you are logged in -->
                                   <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('ADMIN HOME') }}</a>
+                                    <a class="nav-link" href="{{ route('home') }}">{{ __('ADMIN HOME') }}</a>
                                   </li>
                               @endguest
                           </ul>
