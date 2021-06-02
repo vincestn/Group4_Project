@@ -162,6 +162,42 @@
                     <p class="text-white m-0">News to inform you what happens around the globe.</p>
                 </div>
             </div>
+=======
+        {{-- dito na apply ang read function --}}
+        {{-- $article is from ArticlesController index function, instance of Articles model bali dala dala non yung data from articles table sa db. Bali ginamitan ng foreach para makuha per row ang data then $articles->table column, kada loop magpi print ng div so malalagay lahat ng data sa kanya kanyang div at malalagay lahat ng article from db --}}
+        <section id="steps" class="steps section-bg">
+            <div class="container">
+                <div class="row no-gutters" style="display: flex; flex-direction: column;">
+                    
+                    @foreach($articles as $index => $article)
+                        {{-- Need adjustment --}}
+                        <div class="content-item" style="display: flex; justify-content: space-between" data-aos="fade-in">
+                            
+                            <div class="left-container">
+                                <a href="{{ route('articles.show', $article)}}" >
+                                    {{-- counter, not working properly :< --}}
+                                    <span>{{ $index + 1 }}</span>
+                                    <h4>{{ $article->title }}</h4>
+                                    <h6>{{ $article->subTitle }}</h6>
+                                    <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                    <br>
+                                </a>
+                            </div>
+
+                            {{-- no need to apply this to user side, pang admin lang to --}}
+                            <div class="right-container" style="display: flex; justify-content: space-around; align-items: center">
+                                <a href="{{-- route('articles.index', $article->id) --}}" class="btn-edit scrollto m-3" style="width: 160px; text-align: center">Edit Article</a>
+    
+                                <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn-delete scrollto" style="width: 160px">Delete Article</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    @endforeach
+>>>>>>> Stashed changes
 
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
