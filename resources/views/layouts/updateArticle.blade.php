@@ -2,50 +2,62 @@
 {{-- Need adjustment --}}
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-   	  <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-   
-   <!-- Styles -->
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   
-   <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>@yield('articleTitle')</title>
+    <head>
+        <title>Update Article</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <!--meta-->
+        @include('layouts.meta')
    </head>
    
    <body id="page-top"> 
 
 
-    @include('layouts.header_main')
-    
-    <!-- Article Title-->
-    <header class="masthead">
-        @yield('articleCover')
-            <div class="row h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-10 align-self-end">
-                    <h1 class="display-4 text-uppercase text-white font-weight-bold">@yield('articleTitle')</h1>
-                    <h3 class="text-white font-weight-bold">@yield('subTitle')</h1>
+    <!-- Navbar Admin -->
+    <header id="header" class="fixed-top py-2">
+            <div class="container d-flex">
+                <div class="logo mr-auto">
+                    <h1 class="text-light"><a href="{{ url('/index') }}">QuaraNtimes</a></h1>
                 </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white font-italic font-weight-light mb-5">@yield('date')</p>
+                <nav class="navbar navbar-expand-lg nav-menu d-none d-lg-block">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <!-- Left Side Of Navbar -->
+                            <ul class="navbar-nav mr-auto"></ul>
+
+                            <!-- Right Side Of Navbar -->
+                            <ul class="navbar-nav ml-auto">    
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }}
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="nav-link text-dark " href="{{ url('/home') }}">&emsp;{{ __('Admin Home') }}</a>
+                                            <a class="nav-link text-dark " href="{{ url('/index') }}">&emsp;{{ __('Overview Page') }}</a>
+                                            <a class="nav-link text-dark " href="{{ url('/main') }}">&emsp;{{ __('Main Page') }}</a>
+                                            <a class="nav-link text-danger" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">&emsp;
+                                                {{ __('LOGOUT') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </div>
-        </div>
-    </header>
+        </header>
+    <!-- End of Navbar Admin-->
 
     <!-- Content-->   
     <div class="container bg-light">
@@ -164,13 +176,26 @@
 
     @include('layouts.footer')
 
-         <!-- Bootstrap core JS-->
-         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <!-- Vendor JS Files -->
+        <script src="{{ asset('/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('/vendor/php-email-form/validate.js') }}"></script>
+        <script src="{{ asset('/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('/vendor/venobox/venobox.min.js') }}"></script>
+        <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
+
+        <!-- Template Main JS File -->
+        <script src="{{ asset('/js/main.js') }}"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+
    </body>
 </html>

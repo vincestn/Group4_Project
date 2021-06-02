@@ -18,7 +18,8 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle(Request $request, Closure $next, ...$guards)
-    {
+    {   
+        //Once authenticated will be directed to /login
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {

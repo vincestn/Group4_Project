@@ -8,6 +8,12 @@ use Storage;
 
 class ArticlesController extends Controller
 {
+    //Calls middleware.Authenticate, protects from accessing the /home if authenticated
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-        <title>Admin</title>
+        <title>Admin Home</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="img/logo.png" />
         <!--meta-->
@@ -14,7 +14,7 @@
         <header id="header" class="fixed-top py-2">
             <div class="container d-flex">
                 <div class="logo mr-auto">
-                    <h1 class="text-light"><a href="{{ url('/') }}">QuaraNtimes</a></h1>
+                    <h1 class="text-light"><a href="{{ url('/index') }}">QuaraNtimes</a></h1>
                 </div>
                 <nav class="navbar navbar-expand-lg nav-menu d-none d-lg-block">
                     <div class="container">
@@ -28,38 +28,25 @@
 
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
-                                <!-- Authentication Links -->
-                                    @guest
-                                        @if (Route::has('login'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
-                                            </li>
-                                        @endif
-                                        
-                                        @if (Route::has('register'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
-                                            </li>
-                                        @endif
-                                    @else
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->name }}
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }}
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="nav-link text-dark " href="{{ url('/index') }}">&emsp;{{ __('Overview Page') }}</a>
+                                            <a class="nav-link text-dark " href="{{ url('/main') }}">&emsp;{{ __('Main Page') }}</a>
+                                            <a class="nav-link text-danger" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">&emsp;
+                                                {{ __('LOGOUT') }}
                                             </a>
 
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </li>
-                                    @endguest
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
