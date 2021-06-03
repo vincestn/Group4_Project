@@ -96,8 +96,6 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
 
-                                                {{ $articles->tags }}
-
                                                 <select class="form-control" name="tags" id="tags" required>
                                                     <option selected="selected" disabled="disabled" value="">Please Select</option>
                                                     <option value="Local News">Local News</option>
@@ -131,7 +129,7 @@
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" value="{{ $articles->coverImage }}" required>
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" src="{{ $articles->coverImage }}" required>
                                             <p><img id="output" width="200" class="img-thumbnail" /></p>
 
                                             <script>

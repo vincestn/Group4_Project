@@ -16,9 +16,6 @@ Route::get('/create', function () {
     return view('layouts.createArticle');
 });
 
-Route::get('/update', function () {
-    return view('layouts.updateArticle');
-});
 
 // Route::get('/admin', function () {
 //     return view('layouts.adminMain');

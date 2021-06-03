@@ -55,8 +55,15 @@
             </header>
             <!-- End of Navbar Admin-->
 
+            <!-- For messages -->
+            <div class="container">
+                @include('layouts.messages')
+                @yield('content')
+            </div>
+
             <!-- Add Articles -->
             <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+                
                 <div class="col-lg-8 col-md-10 mx-auto text-center" data-aos="fade-up">
                     <h3 class="display-4 text-uppercase text-white font-weight-bold">Publish Articles</h1>
                     <h2><br>
@@ -83,28 +90,32 @@
         <section id="steps" class="steps section-bg">
             <div class="container">
                 <div class="row no-gutters">
-                    
-                    @foreach($articles as $article)
-                        {{-- Need adjustment --}}
-                        <div class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
-                            <a href="{{ route('articles.show', $article)}}" >
-                                {{-- counter, not working properly :< --}}
-                                <span>{{ $i+1 }}</span>
-                                <h4>{{ $article->title }}</h4>
-                                <h6>{{ $article->subTitle }}</h6>
-                                <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
-                                <br>
-                            </a>
+                    @if(count($articles) > 0)
+                        @foreach($articles as $article)
+                            {{-- Need adjustment --}}
+                            <div class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
+                                <a href="{{ route('articles.show', $article)}}" >
+                                    {{-- counter, not working properly :< --}}
+                                    <span>{{ $i+1 }}</span>
+                                    <h4>{{ $article->title }}</h4>
+                                    <h6>{{ $article->subTitle }}</h6>
+                                    <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                    <br>
+                                </a>
 
-                            {{-- no need to apply this to user side, pang admin lang to --}}
-                            &emsp;<a href="route('articles.edit', $article->id)" class="btn-edit scrollto">Edit Article</a> &emsp;
-                            <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn-delete scrollto">Delete Article</button>
-                            </form>
-                        </div>
-                    @endforeach
+                                {{-- no need to apply this to user side, pang admin lang to --}}
+                                &emsp;<a href="{{ route('articles.edit', $article)}}" class="btn-edit scrollto">Edit Article</a> &emsp;
+                                <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn-delete scrollto">Delete Article</button>
+                                </form>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>No articles submitted yet, scroll up and click the button to create a new article!</p>
+                    @endif
+                </div>
 
                 </div>
             </div>

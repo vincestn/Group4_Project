@@ -110,9 +110,36 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Articles $articles)
+    public function update(Request $request)
     {
-        //
+        //Check submitted inputs if valid/not null
+        $this->validate($request, [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'tags' => 'required',
+            'author' => 'required',
+            'coverImage' => 'image|required|max:1999',
+            'content' => 'required'
+        ]);
+
+        //Store submitted cover image of article to storage/images and take the image path
+        $imagePath = $request->file('coverImage')->store('images', 'public');
+
+        //Select the specific record to be updated based on ID
+        $article = Articles::find($article->id);
+
+        //Assign each submitted data to Articles object
+        $article->title = request('title');
+        $article->subtitle = request('subtitle');
+        $article->tags = request('tags');
+        $article->author = request('author');
+        $article->coverImage = $imagePath;
+        $article->content = request('content');
+
+        //Save to database
+        $article->save();
+
+        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Updated');
     }
 
     /**
