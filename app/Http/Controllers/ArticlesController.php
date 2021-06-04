@@ -76,7 +76,7 @@ class ArticlesController extends Controller
         //Save to database
         $article->save();
 
-        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Added');
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 
     /**
@@ -110,7 +110,7 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Articles $article)
     {
         //Check submitted inputs if valid/not null
         $this->validate($request, [
@@ -128,6 +128,8 @@ class ArticlesController extends Controller
         //Select the specific record to be updated based on ID
         $article = Articles::find($article->id);
 
+        Storage::delete('/public/'.$article->coverImage);
+
         //Assign each submitted data to Articles object
         $article->title = request('title');
         $article->subtitle = request('subtitle');
@@ -139,7 +141,7 @@ class ArticlesController extends Controller
         //Save to database
         $article->save();
 
-        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Updated');
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 
     /**
@@ -163,6 +165,6 @@ class ArticlesController extends Controller
         //Delete record in database
         $article->delete();
 
-        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Removed');
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 }

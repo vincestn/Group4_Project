@@ -71,14 +71,15 @@
                             <div class="card-header d-flex justify-content-center font-weight-bold">{{ __('Update Article') }}</div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('articles.update') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('articles.update', $article) }}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
 
                                     <div class="form-group row">
                                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Article Title') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{ $articles->title }}" required> 
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{ $article->title }}" required> 
                                         </div>
                                     </div>
 
@@ -86,7 +87,7 @@
                                         <label for="subtitle" class="col-md-4 col-form-label text-md-right">{{ __('SubTitle') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" value="{{ $articles->subtitle }}" required>
+                                            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter SubTitle" value="{{ $article->subtitle }}" required>
                                         </div>
                                     </div>
 
@@ -101,6 +102,7 @@
                                                     <option value="Local News">Local News</option>
                                                     <option value="International News">International News</option>
                                                 </select>
+
                                             </div>
                                         </div>
                                     </div>
@@ -113,24 +115,12 @@
                                         </div>
                                     </div>
 
-                                    {{--
-
-                                    <div class="form-group row">
-                                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date Published') }}</label>
-
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="date" placeholder="Enter Date">
-                                        </div>
-                                    </div>
-
-                                    --}}
-
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)" src="{{ $articles->coverImage }}" required>
-                                            <p><img id="output" width="200" class="img-thumbnail" /></p>
+                                            <input type="file"  accept="image/*" name="coverImage" id="coverImage"  onchange="loadFile(event)"  required>
+                                            <p><img id="output" width="200" class="img-thumbnail" src="{{asset('storage/'.$article->coverImage)}}" /></p>
 
                                             <script>
                                                 var loadFile = function(event) {
@@ -146,7 +136,9 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" name="content" id="content" rows="20" value="{{ $articles-hosw }}"required></textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20"  required>
+                                                {{ $article->content }}
+                                            </textarea>
                                         </div>
                                     </div>
 

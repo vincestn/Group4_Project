@@ -55,12 +55,6 @@
             </header>
             <!-- End of Navbar Admin-->
 
-            <!-- For messages -->
-            <div class="container">
-                @include('layouts.messages')
-                @yield('content')
-            </div>
-
             <!-- Add Articles -->
             <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
                 
@@ -89,36 +83,44 @@
         {{-- $article is from ArticlesController index function, instance of Articles model bali dala dala non yung data from articles table sa db. Bali ginamitan ng foreach para makuha per row ang data then $articles->table column, kada loop magpi print ng div so malalagay lahat ng data sa kanya kanyang div at malalagay lahat ng article from db --}}
         <section id="steps" class="steps section-bg">
             <div class="container">
-                <div class="row no-gutters">
+                <div class="row no-gutters" style="display: flex; flex-direction: column;">
                     @if(count($articles) > 0)
-                        @foreach($articles as $article)
+                        @foreach($articles as $index => $article)
                             {{-- Need adjustment --}}
-                            <div class="col-lg-4 col-md-6 content-item"  data-aos="fade-in">
-                                <a href="{{ route('articles.show', $article)}}" >
-                                    {{-- counter, not working properly :< --}}
-                                    <span>{{ $i+1 }}</span>
-                                    <h4>{{ $article->title }}</h4>
-                                    <h6>{{ $article->subTitle }}</h6>
-                                    <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
-                                    <br>
-                                </a>
+                            <div class="content-item" style="display: flex; justify-content: space-between" data-aos="fade-in">
+                                
+                                <div class="left-container">
+                                    <a href="{{ route('articles.show', $article) }}" >
+                                        <span>{{ $index + 1 }}</span>
+                                        <h4>{{ $article->title }}</h4>
+                                        <h6>{{ $article->subTitle }}</h6>
+                                        <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                        <br>
+                                    </a>
+                                </div>
 
                                 {{-- no need to apply this to user side, pang admin lang to --}}
-                                &emsp;<a href="{{ route('articles.edit', $article)}}" class="btn-edit scrollto">Edit Article</a> &emsp;
-                                <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn-delete scrollto">Delete Article</button>
-                                </form>
+                                <div class="right-container" style="display: flex; justify-content: space-around; align-items: center">
+                                    
+                                    <a href="{{ route('articles.edit', $article) }}" class="btn-edit scrollto m-3" style="width: 160px; text-align: center">Edit Article</a>
+                                    
+                                    <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn-delete scrollto" style="width: 160px">Delete Article</button>
+                                    </form>
+
+                                </div>
+
                             </div>
                         @endforeach
                     @else
-                        <p>No articles submitted yet, scroll up and click the button to create a new article!</p>
+                        <h5 style="display: flex; justify-content: space-around; align-items: center">No articles submitted yet, scroll up and click the button to create a new article!</h5>
                     @endif
-                </div>
 
                 </div>
             </div>
+        </section>
 
 
         @include('layouts.footer')
