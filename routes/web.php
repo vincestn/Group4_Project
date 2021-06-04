@@ -12,17 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/create', function () {
-    return view('layouts.createArticle');
-});
-
-Route::get('/update', function () {
-    return view('layouts.updateArticle');
-});
-
-// Route::get('/admin', function () {
-//     return view('layouts.adminMain');
-// });
 
 Route::get('/', function() {
     Auth::logout();
@@ -32,11 +21,7 @@ Route::get('/', function() {
 //Route::get('/', 'App\Http\Controllers\RouteController@welcome');
 
 Route::get('/index', 'App\Http\Controllers\RouteController@index');
-Route::get('/main', 'App\Http\Controllers\RouteController@main');
-Route::get('/postLN1', 'App\Http\Controllers\RouteController@postLN1');
-Route::get('/postLN2', 'App\Http\Controllers\RouteController@postLN2');
-Route::get('/postIN1', 'App\Http\Controllers\RouteController@postIN1');
-Route::get('/postIN2', 'App\Http\Controllers\RouteController@postIN2');
+Route::get('/main', 'App\Http\Controllers\ArticlesController@mainRead');
 Route::get('/postSymp', 'App\Http\Controllers\RouteController@postSymp');
 
 Auth::routes();

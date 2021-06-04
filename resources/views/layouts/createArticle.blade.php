@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -110,18 +109,6 @@
                                             <input type="text" class="form-control" name="author" id="author" placeholder="{{ Auth::user()->name }}" value="{{Auth::user()->name}}" readonly>
                                         </div>
                                     </div>
-
-                                    {{--
-
-                                    <div class="form-group row">
-                                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date Published') }}</label>
-
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="date" placeholder="Enter Date">
-                                        </div>
-                                    </div>
-
-                                    --}}
 
                                     <div class="form-group row">
                                         <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Cover Photo') }}</label>

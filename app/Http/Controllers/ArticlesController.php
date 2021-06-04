@@ -20,7 +20,7 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // to be added paginate para malimit yung i show na data
+
         //Get all data from database through the model in order from latest record descending
         $articles = Articles::latest()->get();      
         
@@ -29,6 +29,18 @@ class ArticlesController extends Controller
           'articles' => $articles,
         ]);
     }
+
+    public function mainRead() {
+
+        //Get all data from database through the model in order from latest record descending
+        $articles = Articles::latest()->get();      
+        
+        //Pass database data to adminMain.blade.php for display
+        return view('layouts.mainpageTemplate', [
+          'articles' => $articles,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +67,7 @@ class ArticlesController extends Controller
             'subtitle' => 'required',
             'tags' => 'required',
             'author' => 'required',
-            'coverImage' => 'image|required|max:1999',
+            'coverImage' => 'image|required',
             'content' => 'required'
         ]);
 
@@ -76,7 +88,7 @@ class ArticlesController extends Controller
         //Save to database
         $article->save();
 
-        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Added');
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 
     /**
@@ -97,11 +109,9 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // on progress
-    public function edit()#Articles $article
+    public function edit(Articles $article)
     {
-        return view('edit', compact('article'));
-        //return view('layouts.update');
+        return view('layouts.updateArticle', compact('article'));
     }
 
     /**
@@ -111,9 +121,38 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Articles $articles)
+    public function update(Request $request, Articles $article)
     {
-        //
+        //Check submitted inputs if valid/not null
+        $this->validate($request, [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'tags' => 'required',
+            'author' => 'required',
+            'coverImage' => 'image|required',
+            'content' => 'required'
+        ]);
+
+        //Store submitted cover image of article to storage/images and take the image path
+        $imagePath = $request->file('coverImage')->store('images', 'public');
+
+        //Select the specific record to be updated based on ID
+        $article = Articles::find($article->id);
+
+        Storage::delete('/public/'.$article->coverImage);
+
+        //Assign each submitted data to Articles object
+        $article->title = request('title');
+        $article->subtitle = request('subtitle');
+        $article->tags = request('tags');
+        $article->author = request('author');
+        $article->coverImage = $imagePath;
+        $article->content = request('content');
+
+        //Save to database
+        $article->save();
+
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 
     /**
@@ -137,6 +176,6 @@ class ArticlesController extends Controller
         //Delete record in database
         $article->delete();
 
-        return redirect()->action([ArticlesController::class, 'index'])->with('success', 'Article Removed');
+        return redirect()->action([ArticlesController::class, 'index']);
     }
 }
