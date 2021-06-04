@@ -73,8 +73,8 @@
             <!-- Live Update -->
             <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
                 <div class="col-lg-8 col-md-10 mx-auto text-center" data-aos="fade-up">
-                    <h3 class="display-4 text-uppercase text-white font-weight-bold">@yield('coverTitle')</h1>
-                    <h3 class="text-danger font-weight-bold">@yield('subTitle')</h1>
+                    <h3 class="display-4 text-uppercase text-white font-weight-bold">COVID-19 WORLD COUNT</h1>
+                    <h3 class="text-danger font-weight-bold">133,018,307</h1>
                     <h2><br>
                     <p class="lead">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
                                 Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover
@@ -99,24 +99,32 @@
                     <p class="text-white m-0">Daily news from the Philippines to notify the citizens.</p>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-preview">
-                        @yield('postL1')
+            
+            @if (count($articles->where('tags', '=', 'Local News')) > 0)
+                
+                @foreach($articles->where('tags', '=', 'Local News') as $index => $article)
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="post-preview">
+                                <a href="{{ route('articles.show', $article) }}">
+                                    <h2 style="font-size: 45px; margin-top: 30px; margin-bottom: 10px;"> {{$article->title}} </h2>
+                                </a>
+                                <h4 style=" margin-top: 10px;"> {{$article->subTitle}} </h3>
+                                <p style="font-style: italic;">
+                                    Posted by {{$article->author}} on {{$article->created_at}}
+                                    @isset($article->updated_at)
+                                        ; Updated on {{ $article->updated_at }}
+                                    @endisset
+                                </p>
+                            </div>
+                            <hr />   
+                        </div>
                     </div>
-                    <hr />   
-                </div>
-            </div>
+                @endforeach
 
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-preview">
-                        @yield('postL2')
-                    </div>
-                    <hr />   
-                </div>
-            </div>
+            @else
+                <h5 style="display: flex; justify-content: space-around; align-items: center">Ang aming manunulat tila ay tinatamad :/</h5>       
+            @endif
                     
             <hr />
 
@@ -129,44 +137,33 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-preview">
-                        @yield('postI1')
+            @if (count($articles->where('tags', '=', 'International News')) > 0)
+                
+                @foreach($articles->where('tags', '=', 'International News') as $index => $article)
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="post-preview">
+                                <a href="{{ route('articles.show', $article) }}">
+                                    <h2 style="font-size: 45px; margin-top: 30px; margin-bottom: 10px;"> {{$article->title}} </h2>
+                                </a>
+                                <h4 style=" margin-top: 10px;"> {{$article->subTitle}} </h3>
+                                <p style="font-style: italic;">
+                                    Posted by {{$article->author}} on {{$article->created_at}}
+                                    @isset($article->updated_at)
+                                        ; Updated on {{ $article->updated_at }}
+                                    @endisset
+                                </p>
+                            </div>
+                            <hr />   
+                        </div>
                     </div>
-                    <hr />   
-                </div>
-            </div>
+                @endforeach
 
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-preview">
-                        @yield('postI2')
-                    </div>
-                    <hr />   
-                </div>
-            </div>
+            @else
+                <h5 style="display: flex; justify-content: space-around; align-items: center">Our writers seems to be feeling lazy :/</h5>       
+            @endif
 
-            </div>
             <hr /> 
-            <!-- /#page-content-wrapper -->
-
-        <!-- </div> -->
-        
-          <!-- Symptoms -->
-          <!-- <div class="container-xxl" id="S">
-                <div class="card text-white my-1 py-1 text-center" style="background-image: url(img/symp.jpg); 
-                    height: 325px; background-repeat: no-repeat; background-size:cover;" id="Symptoms">
-                    <div class="card-body">
-                        <br>
-                        <h1 class="section-heading text-white">COVID-19 Symptoms</h2>
-                        <p class="text-white m-0">Be aware, you might have it without knowing.</p>
-                        <p class="text-white m-0">Article by Feca, John Neil G.</p>
-                        <br><br>
-                        <a class="btn btn-secondary btn-lg" href="{{ url('/postSymp') }}" role="button">Learn More</a>
-                    </div>
-                </div>  
-            </div> -->
 
         <!-- Symptoms -->
             <section id="Symptoms" class="d-flex flex-column justify-content-center align-items-center">

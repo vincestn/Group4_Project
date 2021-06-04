@@ -1,5 +1,3 @@
-{{-- Read page --}}
-{{-- Need adjustment --}}
 @extends('layouts.postsTemplate')
 
 @section('articleCover')
@@ -17,6 +15,9 @@
 
 @section('date')
     Posted by {{ $article->author }} on {{ $article->created_at }} 
+    @isset($article->updated_at)
+        ; Updated on {{ $article->updated_at }}
+    @endisset
 @endsection
 
 @section('content')

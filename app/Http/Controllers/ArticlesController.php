@@ -20,7 +20,7 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // to be added paginate para malimit yung i show na data
+
         //Get all data from database through the model in order from latest record descending
         $articles = Articles::latest()->get();      
         
@@ -29,6 +29,18 @@ class ArticlesController extends Controller
           'articles' => $articles,
         ]);
     }
+
+    public function mainRead() {
+
+        //Get all data from database through the model in order from latest record descending
+        $articles = Articles::latest()->get();      
+        
+        //Pass database data to adminMain.blade.php for display
+        return view('layouts.mainpageTemplate', [
+          'articles' => $articles,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +67,7 @@ class ArticlesController extends Controller
             'subtitle' => 'required',
             'tags' => 'required',
             'author' => 'required',
-            'coverImage' => 'image|required|max:1999',
+            'coverImage' => 'image|required',
             'content' => 'required'
         ]);
 
@@ -97,7 +109,6 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // on progress
     public function edit(Articles $article)
     {
         return view('layouts.updateArticle', compact('article'));
@@ -118,7 +129,7 @@ class ArticlesController extends Controller
             'subtitle' => 'required',
             'tags' => 'required',
             'author' => 'required',
-            'coverImage' => 'image|required|max:1999',
+            'coverImage' => 'image|required',
             'content' => 'required'
         ]);
 

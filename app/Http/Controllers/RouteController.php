@@ -19,22 +19,6 @@ class RouteController extends Controller{
         return view('main');
     }
     
-    public function postLN1(){
-        return view('postLN1');
-    }
-    
-    public function postLN2(){
-        return view('postLN2');
-    }
-    
-    public function postIN1(){
-        return view('postIN1');
-    }
-    
-    public function postIN2(){
-        return view('postIN2');
-    }
-    
     public function postSymp(){
         return view('postSymp');
     }

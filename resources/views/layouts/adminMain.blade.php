@@ -67,10 +67,7 @@
                 </div>
             </section>
 
-            
-            <!--Live Update -->
-
-            <!-- Local News -->
+            <!-- List of Articles -->
             <div class="card text-white py-1 text-center" style="background-image: url(img/news.jpg); 
                 height: 130px; background-repeat: no-repeat; background-size:cover;" id="LocalNews">
                 <div class="card-body" data-aos="fade-up">
@@ -79,14 +76,11 @@
                 </div>
             </div>
 
-        {{-- dito na apply ang read function --}}
-        {{-- $article is from ArticlesController index function, instance of Articles model bali dala dala non yung data from articles table sa db. Bali ginamitan ng foreach para makuha per row ang data then $articles->table column, kada loop magpi print ng div so malalagay lahat ng data sa kanya kanyang div at malalagay lahat ng article from db --}}
         <section id="steps" class="steps section-bg">
             <div class="container">
                 <div class="row no-gutters" style="display: flex; flex-direction: column;">
-                    @if(count($articles) > 0)
+                    @if (count($articles) > 0)
                         @foreach($articles as $index => $article)
-                            {{-- Need adjustment --}}
                             <div class="content-item" style="display: flex; justify-content: space-between" data-aos="fade-in">
                                 
                                 <div class="left-container">
@@ -94,12 +88,15 @@
                                         <span>{{ $index + 1 }}</span>
                                         <h4>{{ $article->title }}</h4>
                                         <h6>{{ $article->subTitle }}</h6>
-                                        <p>Posted by {{ $article->author }}, on {{ $article->created_at }} {{-- unfinished, if updated, show updated_at data from db; else don't show updated by keme --}}</p>
+                                        <p>Posted by {{ $article->author }}, on {{ $article->created_at }} 
+                                            @isset($article->updated_at)
+                                                ; Updated on {{ $article->updated_at }}
+                                            @endisset
+                                        </p>
                                         <br>
                                     </a>
                                 </div>
 
-                                {{-- no need to apply this to user side, pang admin lang to --}}
                                 <div class="right-container" style="display: flex; justify-content: space-around; align-items: center">
                                     
                                     <a href="{{ route('articles.edit', $article) }}" class="btn-edit scrollto m-3" style="width: 160px; text-align: center">Edit Article</a>
@@ -109,13 +106,14 @@
                                         @method('DELETE')
                                         <button class="btn-delete scrollto" style="width: 160px">Delete Article</button>
                                     </form>
-
                                 </div>
-
                             </div>
                         @endforeach
+
                     @else
+
                         <h5 style="display: flex; justify-content: space-around; align-items: center">No articles submitted yet, scroll up and click the button to create a new article!</h5>
+                    
                     @endif
 
                 </div>

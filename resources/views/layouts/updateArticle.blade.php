@@ -1,5 +1,3 @@
-{{-- Update page --}}
-{{-- Need adjustment --}}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -136,9 +134,7 @@
                                         <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                         <div class="col-md-8">
-                                            <textarea class="form-control" name="content" id="content" rows="20"  required>
-                                                {{ $article->content }}
-                                            </textarea>
+                                            <textarea class="form-control" name="content" id="content" rows="20"  required>{{ $article->content }}</textarea>
                                         </div>
                                     </div>
 
