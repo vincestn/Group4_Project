@@ -9,45 +9,6 @@
    </head>
    
    <body> 
-        <!-- <div class="d-flex" id="wrapper" > -->
-
-        <!-- Sidebar -->
-        <!-- <div style="width:300px;">
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <br>
-                <div class="sidebar-heading text-center">QuaraNtimes</div>
-                <div class="list-group list-group-flush mt-2">
-                    <a href="https://www.worldometers.info/coronavirus/" class="list-group-item list-group-item-action bg-light text-center">Live Update</a>
-                    <a href="#LocalNews" class="list-group-item list-group-item-action bg-light text-center">Local News</a>
-                    <a href="#InterNews" class="list-group-item list-group-item-action bg-light text-center">International News</a>
-                    <a href="#Symptoms" class="list-group-item list-group-item-action bg-light text-center">COVID-19 Symptoms</a>
-                    <a href="{{ url('/index#mobile ') }}" class="list-group-item list-group-item-action bg-light text-center">QuaraNtimes Mobile</a>
-                    <a href="{{ url('/index') }}" class="list-group-item list-group-item-action bg-light text-center">Overview Page</a>
-                </div>
-            </div>
-        </div> -->
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <!-- <div class="container border-left" id="page-content-wrapper"> -->
-
-            <!-- Navbar Mainpage -->
-            <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-5">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">&emsp;@yield('websiteName')</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <form class="form-inline">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-                                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><a href=""><i class="fas fa-search"></i></a></span></div>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-            </nav> -->
             <!--Header-->
             <header id="header" class="fixed-top py-2">
                 <div class="container d-flex">
