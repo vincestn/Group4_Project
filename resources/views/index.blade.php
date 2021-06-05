@@ -150,10 +150,10 @@
                         a call or send us an email and we will get back to you as soon as possible!</p>
             </div>
 
-            <div class="row no-gutters justify-content-center" data-aos="fade-up">
+            <div class="row no-gutters ml-5 justify-content-center" data-aos="fade-up">
 
-            <div class="col-lg-5 d-flex align-items-stretch">
-                <div class="info">
+              <div class="col-ml-lg-5 d-flex ml-5 align-items-stretch">
+                <div class="info ml-5">
                 <div class="address">
                     <i class="icofont-google-map"></i>
                     <h4>Location:</h4>
